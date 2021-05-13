@@ -1,0 +1,24 @@
+.navbar {
+  background-color: #1e0e62;
+  padding: 5px 0px 15px;
+}
+a,
+li {
+  color: white;
+}
+.brand h1 a {
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+.menu li {
+  display: inline-block;
+  text-align: right;
+  padding: 15px 10px 10px 10px;
+}
+
+ul,
+li,
+h1,
+.button {
+  margin-bottom: 0;
+}

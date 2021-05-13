@@ -1,0 +1,43 @@
+<amplify-authenticator *ngIf="authState !=='signedin'" usernameAlias="email">
+    <!-- Add properties to customize signup form-->
+    <amplify-sign-in header-text="Sign In" slot="sign-in" hide-sign-up="true"></amplify-sign-in>
+</amplify-authenticator>
+
+<div *ngIf="authState === 'signedin'" class="App">
+<div *ngIf="!editing">
+    <hr>
+    <h2 class="title">
+        {{ post.title }}
+    </h2>
+    <p class="meta">Published on {{ post.createdAt | date }}</p>
+    <hr>
+    <div class="row">
+        <div class="twelve columns">
+            <p class="description margin-10"> {{post.description}} </p>
+            <hr>
+            <button class="button button-primary margin-right-10" routerLink="/research">View All Posts</button>
+            <button class="button" (click)="setEditMode(true)">Edit Post</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="editing">
+    <hr>
+    <h2>Edit Post</h2>
+    <form #form="ngForm" (ngSubmit)="updatePost(form.value)">
+        <div class="row">
+            <div class="six columns">
+                <label for="title">Title</label>
+                <input class="u-full-width" type="text" id="title" name="title" [ngModel]="post.title">
+                <label for="description">Description</label>
+                <input class="u-full-width" type="text" id="description" name="description"
+                    [ngModel]="post.description">
+                <input class="u-full-width" type="hidden" id="id" name="id" [ngModel]="post.id">
+                <button class="button button-primary margin-right-10" type="submit">Update</button>
+                <button class="button button-red margin-right-10" (click)="deletePost(post.id)" type="button">Delete</button>
+                <button class="button" (click)="setEditMode(false)" type="button">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>

@@ -1,0 +1,15 @@
+<hr>
+<h1>New Post</h1>
+<div class="form-body">
+    <form autocomplete="off" [formGroup]="createForm" (ngSubmit)="onCreate(createForm.value)">
+        <div>
+            <label>Title: </label>
+            <input type="text" formControlName="title" autocomplete="off" class="u-full-width">
+        </div>
+        <div>
+            <label>Description: </label>
+            <input type="text" formControlName="description" autocomplete="off" class="u-full-width">
+        </div>
+        <button type="submit" class="button button-primary">Create</button>
+    </form>
+</div>

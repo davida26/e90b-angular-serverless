@@ -1,0 +1,13 @@
+type Post
+  @model
+  @key(
+    name: "todosByDate"
+    fields: ["title", "createdAt"]
+    queryField: "postsByDate"
+  ) {
+  id: ID!
+  title: String!
+  description: String!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}

@@ -1,0 +1,24 @@
+<div class="navbar">
+    <div class="container">
+        <div class="row">
+            <div class="five columns">
+                <div class="brand">
+                    <h1><a routerLink="/">David Aviles</a></h1>
+                </div>
+            </div>
+            <div class="six columns">
+                <ul class="menu u-pull-right">
+                    <li class="item"><a routerLink="/about">About</a></li>
+                    <li class="item"><a routerLink="/research">Research</a></li>>
+                    <li class="item" *ngIf="authState === 'signedin' && user" class="App">
+                        <a href="/new" class="button button-primary">New Post</a>
+                </li>
+                <li class="item" *ngIf="authState !=='signedin'"><a routerLink="/research" class="button button-primary">Login</a></li>
+                </ul>
+            </div>
+            <div class="one column" style="margin-top: 12px;">
+                <amplify-sign-out *ngIf="authState === 'signedin' && user" class="App" (click)="reload()"></amplify-sign-out>
+            </div>
+        </div>
+    </div>
+</div>

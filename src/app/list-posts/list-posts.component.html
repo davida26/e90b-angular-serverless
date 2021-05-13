@@ -1,0 +1,12 @@
+<amplify-authenticator *ngIf="authState !=='signedin'" usernameAlias="email">
+    <!-- Add properties to customize signup form-->
+    <amplify-sign-in header-text="Sign In" slot="sign-in" hide-sign-up="true"></amplify-sign-in>
+</amplify-authenticator>
+
+<div *ngIf="authState === 'signedin'" class="App">
+    <div *ngFor="let post of posts" [post]="post">
+        <h3><a routerLink="/post/{{post.id}}">{{post.title}}</a></h3>
+        <p class="meta">Published on {{ post.createdAt | date }} by {{ user.attributes.name }}</p>
+        <p>{{ post.description }}</p>
+    </div>
+</div>

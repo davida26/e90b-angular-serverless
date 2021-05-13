@@ -1,0 +1,11 @@
+<amplify-authenticator *ngIf="authState !=='signedin'" usernameAlias="email">
+    <!-- Add properties to customize signup form-->
+    <amplify-sign-in header-text="Sign In" slot="sign-in" hide-sign-up="true"></amplify-sign-in>
+    <!-- Hidden via property, for reference-->
+    <amplify-sign-up slot="sign-up" header-text="Create a New Account" usernameAlias="email" [formFields]="formFields">
+    </amplify-sign-up>
+</amplify-authenticator>
+
+<!-- <div *ngIf="authState === 'signedin' && user" class="App">
+    <amplify-sign-out></amplify-sign-out> 
+</div> -->
